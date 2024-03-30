@@ -33,7 +33,7 @@ public class ChatController {
     private ChatService chatService;
     
     @GetMapping("/get")
-    public Chat getChat(@RequestParam Integer customerId, Integer farmerId) {
+    public Chat getChat(@RequestParam Integer customerId, Integer farmerId) throws Exception {
         Chat chat = chatService.getChat(customerId, farmerId);
         if (chat == null) {
             throw new Exception("No correspdonding messages with farmerId/ccustomerId");
@@ -42,7 +42,7 @@ public class ChatController {
     }
 
     @GetMapping("/latest")
-    public List<Message> getLatest(@RequestParam Integer chatId, Timestamp latestTimestamp) {
+    public List<Message> getLatest(@RequestParam Integer chatId, Timestamp latestTimestamp) throws Exception {
         List<Message> chat = chatService.getLatest(chatId, latestTimestamp);
         if (chat == null) {
             throw new Exception("No messages");
@@ -51,7 +51,7 @@ public class ChatController {
     }
     
     @PostMapping("/send")
-    public Chat sendMessage(@RequestBody Message message) {
+    public Chat sendMessage(@RequestBody Message message) throws Exception{
         Chat chat = chatService.sendMessage(message);
         if (chat == null) {
             throw new Exception("Cannot send message");
@@ -60,7 +60,7 @@ public class ChatController {
     }
 
     @PostMapping("/end")
-    public Cart finishConveration(@RequestBody Integer chatId) {
+    public Cart finishConveration(@RequestBody Integer chatId) throws Exception {
         Cart cart = chatService.finishConversation(chatId);
         if (cart == null) {
             throw new Exception("Cannot finish conversation");

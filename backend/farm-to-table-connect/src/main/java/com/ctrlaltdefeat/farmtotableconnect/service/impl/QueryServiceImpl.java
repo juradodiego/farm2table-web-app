@@ -10,11 +10,12 @@ import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ctrlaltdefeat.farmtotableconnect.model.Farm;
 import com.ctrlaltdefeat.farmtotableconnect.model.Produce;
-import com.ctrlaltdefeat.farmtotableconnect.repository.ProduceRepository;
 import com.ctrlaltdefeat.farmtotableconnect.repository.FarmRepository;
+import com.ctrlaltdefeat.farmtotableconnect.repository.ProduceRepository;
 import com.ctrlaltdefeat.farmtotableconnect.service.QueryService;
 
 
@@ -84,7 +85,6 @@ public class QueryServiceImpl implements QueryService {
 
     }
 
-    @Override
     public List<Farm> queryByProduceAndLocation(Produce produce, Integer zipcode, Double radius) {
         return queryByLocation(zipcode, radius).stream().filter(f -> f.getSelling().contains(produce.getProduceId())).toList();
     }
@@ -117,6 +117,12 @@ public class QueryServiceImpl implements QueryService {
         
         return distance <= radius;
 
+    }
+
+    @Override
+    public List<Farm> queryByProduceAndLocation(Integer produce, Integer zipcode, Double radius) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'queryByProduceAndLocation'");
     }
     
 }

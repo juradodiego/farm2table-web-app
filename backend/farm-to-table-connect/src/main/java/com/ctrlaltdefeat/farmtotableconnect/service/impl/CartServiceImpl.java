@@ -3,11 +3,11 @@ package com.ctrlaltdefeat.farmtotableconnect.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ctrlaltdefeat.farmtotableconnect.model.Cart;
 import com.ctrlaltdefeat.farmtotableconnect.model.CartItem;
 import com.ctrlaltdefeat.farmtotableconnect.model.Message;
-import com.ctrlaltdefeat.farmtotableconnect.model.Produce;
 import com.ctrlaltdefeat.farmtotableconnect.repository.CartRepository;
 import com.ctrlaltdefeat.farmtotableconnect.service.CartService;
 

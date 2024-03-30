@@ -43,20 +43,57 @@ const Register = () => {
         <form onSubmit={() => {}}>
           <div className="topFields">
             <div className="names">
-              <input type="text" placeholder="First Name" />
-              <input type="text" placeholder="Last Name" />
+              <input 
+                type="text" 
+                placeholder="First Name" 
+                value={fName}
+                onChange={(e) => setFName(e.target.value)}/>
+              <input 
+                type="text" 
+                placeholder="Last Name" 
+                value={lName}
+                onChange={(e) => setLName(e.target.value)}/>
             </div>
-            <input type="email" placeholder="email" />
-            <input type="password" placeholder="password" />
+            <input 
+              type="email" 
+              placeholder="email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}/>
+            <input
+              type="password"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
           {isFarmer && (
             <div className="farmer topFields">
-              <input type="location" placeholder="Farm Name" />
+              <input 
+                type="location" 
+                placeholder="Farm Name" 
+                value={farmName}
+                onChange={(e) => setFarmName(e.target.value)}/>
               <div className="addressStuff">
-                <input type="location" placeholder="Address Line" />
-                <input type="location" placeholder="City" />
-                <input type="location" placeholder="State" />
-                <input type="location" placeholder="Zip Code" />
+                <input 
+                  type="location" 
+                  placeholder="Address Line" 
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}/>
+                <input 
+                  type="location" 
+                  placeholder="City" 
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}/>
+                <input 
+                  type="location" 
+                  placeholder="State" 
+                  value={stateName}
+                  onChange={(e) => setStateName(e.stateName.value)}/>
+                <input 
+                  type="location" 
+                  placeholder="Zip Code"
+                  value={zipcode}
+                  onChange={(e) => setZipcode(e.target.value)} />
               </div>
 
               <div className="multiselect">

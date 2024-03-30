@@ -4,9 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.NoSuchElementException;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ctrlaltdefeat.farmtotableconnect.model.Cart;
 import com.ctrlaltdefeat.farmtotableconnect.model.Chat;
