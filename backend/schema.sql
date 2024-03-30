@@ -103,7 +103,7 @@ create table cart (
 -- contains
 -------------------------------------------
 drop table if exists cartItem CASCADE;
-create table contains (
+create table cartItem (
   cartId integer,
   produceId integer,
   quantity integer not null,
