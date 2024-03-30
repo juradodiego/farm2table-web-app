@@ -7,6 +7,15 @@ import "../style/dropdown.js";
 import { ReactLocation, Router, useMatch } from "react-location";
 import { register } from "../services/UserService.js";
 const Register = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fName, setFName] = useState("");
+  const [lName, setLName] = useState("");
+  const [farmName, setFarmName] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [stateName, setStateName] = useState("");
+  const [zipcode, setZipcode] = useState("");
   const [isFarmer, setFarmer] = useState(false);
   const [clicked, setClicked] = useState(false);
 

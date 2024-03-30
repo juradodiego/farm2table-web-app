@@ -7,12 +7,15 @@ import { login } from "../services/UserService";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const handleLogin = () => {
+    login(email, password);
+  };
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     login(email, password);
-    navigate("/search");
+
+    navigate("/messages");
   };
 
   return (
@@ -34,7 +37,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button>Login</button>
+          <button onClick={handleLogin}>Login</button>
         </form>
         <p>
           You do not have an account? <Link to="/register">Register</Link>
