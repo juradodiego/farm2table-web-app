@@ -23,5 +23,11 @@ public interface ChatRepository extends JpaRepository<Chat, Integer>{
 
     @Query()
     Optional<List<Chat>> getAllChats(Integer userId);
+
+    @Query
+    Optional<Boolean> isFarmerApproved(Integer chatId);
+
+    @Query
+    Optional<Boolean> isCustomerApproved(Integer chatId);
     
 }

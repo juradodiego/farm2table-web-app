@@ -32,14 +32,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByUserId(Integer userId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getUserByUserId'");
+        Optional<User> response = userRepository.getUserByUserId(userId);
+        if (response.isPresent()) {
+            return response.get();
+            
+        }
+        return null;
     }
 
     @Override
     public User newUser(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'newUser'");
+        return userRepository.save(user);
     }
     
     private String encodePassword(String rawPassword){

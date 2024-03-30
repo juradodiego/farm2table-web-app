@@ -16,7 +16,7 @@ public class QueryServiceImpl implements QueryService {
     ProduceRepository produceRepository;
 
     @Autowired
-    FarmRepository farmRepository
+    FarmRepository farmRepository;
 
     @Override
     public List<Farm> queryByProduce(List<Produce> produce) {
