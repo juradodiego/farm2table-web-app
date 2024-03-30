@@ -23,7 +23,7 @@ public class QueryController {
     private QueryService queryService;
 
      @GetMapping("/produce")
-    public List<Farm> queryByProduce(List<Produce> produce) throws Exception {
+    public List<Farm> queryByProduce(Integer produce) throws Exception {
         try {
             List<Farm> farms = queryService.queryByProduce(produce);
             // TODO: Make custom exception
@@ -37,9 +37,9 @@ public class QueryController {
     }
 
     @GetMapping("/location")
-    public List<Farm> queryByLocation(Integer zipcode) throws Exception {
+    public List<Farm> queryByLocation(Integer zipcode, Double radius) throws Exception {
         try {
-            List<Farm> farms = queryService.queryByLocation(zipcode);
+            List<Farm> farms = queryService.queryByLocation(zipcode, radius);
             // TODO: Make custom exception
             if (farms == null) 
                 throw new Exception("No farms");
@@ -51,9 +51,9 @@ public class QueryController {
     }
 
     @GetMapping("/locationAndProduce")
-    public List<Farm> queryByProduceAndLocation(List<Produce> produce, Integer zipcode) throws Exception {
+    public List<Farm> queryByProduceAndLocation(Integer produce, Integer zipcode, Double radius) throws Exception {
         try {
-            List<Farm> farms = queryService.queryByProduceAndLocation(produce, zipcode);
+            List<Farm> farms = queryService.queryByProduceAndLocation(produce, zipcode, radius);
             // TODO: Make custom exception
             if (farms == null) 
                 throw new Exception("No farms");
