@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ctrlaltdefeat.farmtotableconnect.model.Farm;
 import com.ctrlaltdefeat.farmtotableconnect.model.Produce;
 import com.ctrlaltdefeat.farmtotableconnect.service.QueryService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @CrossOrigin(origins="*", allowedHeaders = "*")
 @RestController
@@ -19,7 +22,7 @@ public class QueryController {
     @Autowired
     private QueryService queryService;
 
-    //  @PostMapping("/")
+     @GetMapping("/produce")
     public List<Farm> queryByProduce(List<Produce> produce) throws Exception {
         try {
             List<Farm> farms = queryService.queryByProduce(produce);
@@ -33,7 +36,7 @@ public class QueryController {
         return null;
     }
 
-    //  @PostMapping("/")
+    @GetMapping("/loc")
     public List<Farm> queryByLocation(Integer zipcode) throws Exception {
         try {
             List<Farm> farms = queryService.queryByLocation(zipcode);
@@ -47,7 +50,7 @@ public class QueryController {
         return null;
     }
 
-    //  @PostMapping("/")
+    @GetMapping("/locAndProduce")
     public List<Farm> queryByProduceAndLocation(List<Produce> produce, Integer zipcode) throws Exception {
         try {
             List<Farm> farms = queryService.queryByProduceAndLocation(produce, zipcode);
