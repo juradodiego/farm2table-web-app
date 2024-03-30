@@ -29,38 +29,33 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByUsername(String email, String password) {
-        Optional<User> response = userRepository.getUserByUsername(email);
-        if (response.isPresent()) {
-            return response.get();
-            
-        }
-        return null;
-       
+        User u = userRepository.getUserByUsername(email);
+        return u.getPassword().equals(password) ? u : null;
     }
 
     @Override
     public User getUserByUserId(Integer userId) {
-        Optional<User> response = userRepository.getUserByUserId(userId);
-        if (response.isPresent()) {
-            return response.get();
+        // Optional<User> response = userRepository.getUserByUserId(userId);
+        // if (response.isPresent()) {
+        //     return response.get();
             
-        }
+        // }
         return null;
     }
 
     @Override
     public User newUser(User user, Farm farm, Address address) {
-        if (user.getConsumer().booleanValue()) { 
-            userRepository.newUser(user); 
+        // if (user.getConsumer().booleanValue()) { 
+        //     userRepository.newUser(user); 
 
-        } else {
-            calculateLatAndLong(farm, address);
-            farmRepository.save(farm);
-            user.setFarmId(farm.getFarmId());
-            userRepository.newUser(user);
+        // } else {
+        //     calculateLatAndLong(farm, address);
+        //     farmRepository.save(farm);
+        //     user.setFarmId(farm.getFarmId());
+        //     userRepository.newUser(user);
             
 
-        }
+        // }
 
         return user;
     }

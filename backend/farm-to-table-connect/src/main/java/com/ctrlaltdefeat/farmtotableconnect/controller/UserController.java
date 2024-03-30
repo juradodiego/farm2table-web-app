@@ -9,15 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ctrlaltdefeat.farmtotableconnect.service.UserService;
 import com.ctrlaltdefeat.farmtotableconnect.model.Address;
 import com.ctrlaltdefeat.farmtotableconnect.model.Farm;
+import com.ctrlaltdefeat.farmtotableconnect.model.LoginRequest;
 import com.ctrlaltdefeat.farmtotableconnect.model.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
 
-@CrossOrigin(origins="http://localhost:5176")
+@CrossOrigin(origins="*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -25,13 +27,21 @@ public class UserController {
     @Autowired
     private UserService userSerivce;
 
-    @GetMapping("/login")
-    public User getUser(@RequestBody String username, String password) throws Exception {
-        User user = userSerivce.getUserByUsername(username, password);
-        // TODO: Make custom exception
-        if (user == null) 
-            throw new Exception("Incorrect username or password");
-        return user;
+    @PostMapping("/login")
+
+    public User getUser(@RequestBody LoginRequest loginRequest) throws Exception {
+        try {
+            User user = userSerivce.getUserByUsername(loginRequest.getUsername(), loginRequest.getPassword());
+            // TODO: Make custom exception
+            if (user == null) 
+                throw new Exception("Incorrect username or password");
+            return user;
+        } catch (Exception e) {
+            System.out.println("e");
+        }
+        
+        return null;
+        
     }
 
     @PostMapping("/register")
