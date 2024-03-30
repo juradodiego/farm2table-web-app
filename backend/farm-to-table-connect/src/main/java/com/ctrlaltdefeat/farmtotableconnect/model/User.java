@@ -16,6 +16,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private Integer userId;
+    private String fName;
+    private String lName;
     private Farm farm;
     private Boolean consumer;
     private String email;
