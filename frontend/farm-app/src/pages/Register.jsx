@@ -32,12 +32,24 @@ const Register = () => {
         <span className="title"> Register</span>
         <span className="logo">Farm 2 Table Connect</span>
         <form onSubmit={() => {}}>
-          <input type="text" placeholder="First Name, Last Name" />
-          <input type="email" placeholder="email" />
-          <input type="password" placeholder="password" />
+          <div className="topFields">
+            <div className="names">
+              <input type="text" placeholder="First Name" />
+              <input type="text" placeholder="Last Name" />
+            </div>
+            <input type="email" placeholder="email" />
+            <input type="password" placeholder="password" />
+          </div>
           {isFarmer && (
-            <div>
-              <input type="location" placeholder="location" />
+            <div className="farmer topFields">
+              <input type="location" placeholder="Farm Name" />
+              <div className="addressStuff">
+                <input type="location" placeholder="Address Line" />
+                <input type="location" placeholder="City" />
+                <input type="location" placeholder="State" />
+                <input type="location" placeholder="Zip Code" />
+              </div>
+
               <div className="multiselect">
                 <div
                   className="selectBox"
@@ -77,7 +89,7 @@ const Register = () => {
             <span>Add an avatar</span>
           </label>
 
-          <button>Login</button>
+          <button>Register</button>
         </form>
         <p>
           You do have an account?<Link to="/">Login</Link>

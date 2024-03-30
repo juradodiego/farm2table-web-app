@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../style/login.scss";
-const handleSubmit = () => {
-  navigate("/messages");
-};
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    navigate("/messages");
+  };
   return (
     <div className="formContainer">
       <div className="formWrapper">

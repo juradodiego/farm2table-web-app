@@ -1,7 +1,5 @@
-.chatInfo {
-  span {
-    color: white;
-  }
+.link {
+  color: white;
 }
 .home {
   background-color: #fefae0;
@@ -115,12 +113,19 @@
         justify-content: space-between;
         color: #fefae0;
         button {
+          Link {
+            p {
+              font-size: 100px;
+              color: aliceblue;
+              background-color: white;
+            }
+          }
           background-color: #283618;
-          color: aliceblue;
+
           font-size: 10px;
           height: 30px;
           border: none;
-          border-radius: 5px;
+          border-radius: px;
           cursor: pointer;
         }
       }

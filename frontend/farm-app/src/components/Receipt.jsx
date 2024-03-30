@@ -26,6 +26,16 @@ function Receipt() {
           <div className="modal-content">
             <h2>Receipt</h2>
             <p>Contents:</p>
+            <div className="singleItem">
+              <input type="text" />
+              <input type="text" />
+              <input type="text" />
+            </div>
+
+            <li>Hi</li>
+            <li>Hi</li>
+            <li>Hi</li>
+            <li>Hi</li>
             <button className="buttons">Approve</button>
             <button className="buttons">Edit</button>
             <button className="close-modal" onClick={toggleModal}>

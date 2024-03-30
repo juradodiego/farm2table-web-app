@@ -1,9 +1,14 @@
 import React from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="navbar">
-      <button>back</button>
+      <button>
+        <Link className="link" to="/">
+          back
+        </Link>
+      </button>
       <span className="logo">Farm 2 Table</span>
       <div className="user">
         <img

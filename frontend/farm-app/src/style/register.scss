@@ -42,7 +42,38 @@
     font-size: 5px;
   }
 }
+.farmer {
+  margin-left: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  .addressStuff {
+    display: flex;
+  }
+
+  input {
+    align-items: center;
+    margin-bottom: 15px;
+    margin-left: 11px;
+  }
+}
+
+.names {
+  input {
+    margin-left: 10px;
+  }
+}
+
+.topFields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  input {
+    margin-top: 15px;
+  }
+}
 .formContainer2 {
   background-color: #fefae0;
   height: 100vh;
@@ -102,7 +133,7 @@
     .myDropDown {
       display: flex;
       flex-direction: column;
-      height: 20px;
+      height: 30px;
       overflow-y: scroll;
       margin-top: 20px;
     }
