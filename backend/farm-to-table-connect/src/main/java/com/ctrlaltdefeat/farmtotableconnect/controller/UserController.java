@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ctrlaltdefeat.farmtotableconnect.service.UserService;
+import com.ctrlaltdefeat.farmtotableconnect.model.Address;
+import com.ctrlaltdefeat.farmtotableconnect.model.Farm;
 import com.ctrlaltdefeat.farmtotableconnect.model.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,8 +35,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public User postMethodName(@RequestBody User user) {
-        return userSerivce.newUser(user);
+    public User newUser(@RequestBody User user, Farm farm, Address address) {
+        return userSerivce.newUser(user, farm, address);
     }
     
 

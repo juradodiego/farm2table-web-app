@@ -2,6 +2,8 @@ package com.ctrlaltdefeat.farmtotableconnect.model;
 
 import lombok.*;
 
+import java.util.List;
+
 import jakarta.persistence.*;;
 
 @Getter
@@ -15,4 +17,5 @@ public class Chat {
     private Integer chatId;
     private Integer customerId;
     private Integer farmerId;
+    private List<Message> conversation;
 }

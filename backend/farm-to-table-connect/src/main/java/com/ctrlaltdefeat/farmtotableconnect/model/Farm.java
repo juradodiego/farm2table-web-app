@@ -2,6 +2,8 @@ package com.ctrlaltdefeat.farmtotableconnect.model;
 
 import lombok.*;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Getter
@@ -16,4 +18,7 @@ public class Farm {
     private String farmName;
     private Double latitude;
     private Double longitude;
+    @Column
+    @ElementCollection(targetClass=Integer.class)
+    private List<Integer> selling;
 }

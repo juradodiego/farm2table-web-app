@@ -2,6 +2,8 @@ package com.ctrlaltdefeat.farmtotableconnect.model;
 
 import lombok.*;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Getter
@@ -13,9 +15,12 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private Integer cartId;
-    private Integer farmId;
     private Integer customerId;
     private Integer farmerId;
-    private Integer chatId;
-    private String content;
+    private Boolean approvedByFarmer;
+    private Boolean approvedByCustomer;
+    private Boolean isActive;
+    @Column
+    @ElementCollection(targetClass=CartItem.class)
+    private List<CartItem> content;
 }
