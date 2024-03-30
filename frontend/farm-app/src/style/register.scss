@@ -1,53 +1,46 @@
-.dropdown-check-list {
-  display: inline-block;
+.multiselect {
+  width: 200px;
 }
 
-.dropdown-check-list .anchor {
+.selectBox {
   position: relative;
-  cursor: pointer;
-  display: inline-block;
-  padding: 5px 50px 5px 10px;
-  border: 1px solid #ccc;
 }
 
-.dropdown-check-list .anchor:after {
-  position: absolute;
-  content: "";
-  border-left: 2px solid black;
-  border-top: 2px solid black;
-  padding: 5px;
-  right: 10px;
-  top: 20%;
-  -moz-transform: rotate(-135deg);
-  -ms-transform: rotate(-135deg);
-  -o-transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-  transform: rotate(-135deg);
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
 }
 
-.dropdown-check-list .anchor:active:after {
-  right: 8px;
-  top: 21%;
-}
-
-.dropdown-check-list ul.items {
-  padding: 2px;
-  display: none;
-  margin: 0;
-  border-top: none;
-  max-width: 20px;
-}
-
-.dropdown-check-list ul.items li {
-  list-style: none;
-}
-
-.dropdown-check-list.visible .anchor {
-  color: #283618;
-}
-
-.dropdown-check-list.visible .items {
+.clicked {
   display: block;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+.boxes {
+  overflow-y: scroll;
+  max-height: 40px;
+  justify-content: left;
+
+  label {
+    width: 30px;
+    height: 40px;
+  }
+  p {
+    display: flex;
+    width: 150px;
+    font-size: 5px;
+  }
 }
 
 .formContainer2 {
@@ -99,10 +92,19 @@
         color: rgb(175, 175, 175);
       }
     }
+
     form {
       display: flex;
       flex-direction: column;
       gap: 15px;
+    }
+
+    .myDropDown {
+      display: flex;
+      flex-direction: column;
+      height: 20px;
+      overflow-y: scroll;
+      margin-top: 20px;
     }
 
     button {
