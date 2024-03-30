@@ -36,7 +36,7 @@ public class QueryController {
         return null;
     }
 
-    @GetMapping("/loc")
+    @GetMapping("/location")
     public List<Farm> queryByLocation(Integer zipcode) throws Exception {
         try {
             List<Farm> farms = queryService.queryByLocation(zipcode);
@@ -50,7 +50,7 @@ public class QueryController {
         return null;
     }
 
-    @GetMapping("/locAndProduce")
+    @GetMapping("/locationAndProduce")
     public List<Farm> queryByProduceAndLocation(List<Produce> produce, Integer zipcode) throws Exception {
         try {
             List<Farm> farms = queryService.queryByProduceAndLocation(produce, zipcode);
