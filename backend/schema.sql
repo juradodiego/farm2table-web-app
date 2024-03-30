@@ -8,6 +8,7 @@ SET SCHEMA 'farm2table';
 drop table if exists farm CASCADE;
 create table farm (
   farmId integer,
+  farmName varchar(30) not null,
   latitude real not null,
   longitude real not null,
   constraint farm_pk primary key (farmId)
