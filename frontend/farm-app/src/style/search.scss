@@ -27,6 +27,9 @@
   border-radius: 4px;
   margin-right: -10%;
   cursor: pointer;
+  &:hover {
+    background-color: #606c38;
+  }
 }
 
 .search-container input[type="text"] {

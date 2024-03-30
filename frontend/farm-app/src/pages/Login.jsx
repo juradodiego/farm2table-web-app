@@ -12,7 +12,7 @@ const Login = () => {
 
   const handleSubmit = () => {
     login(email, password);
-    navigate("/messages");
+    navigate("/search");
   };
 
   return (

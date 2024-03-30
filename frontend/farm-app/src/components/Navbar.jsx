@@ -4,11 +4,10 @@ import { useNavigate, Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <button>
-        <Link className="link" to="/search">
-          back
-        </Link>
-      </button>
+      <Link className="link" to="/search">
+        <button className="back">Back</button>
+      </Link>
+
       <span className="logo">Farm 2 Table</span>
       <div className="user">
         <img

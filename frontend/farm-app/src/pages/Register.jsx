@@ -5,9 +5,15 @@ import "../style/register.scss";
 import Add from "../img/addAvatar.png";
 import "../style/dropdown.js";
 import { ReactLocation, Router, useMatch } from "react-location";
+import { register } from "../services/UserService.js";
 const Register = () => {
   const [isFarmer, setFarmer] = useState(false);
   const [clicked, setClicked] = useState(false);
+
+  const navigate = useNavigate();
+  const registerAccount = () => {
+    navigate("/search");
+  };
   return (
     <div className="formContainer2">
       <div className="formWrapper">
@@ -89,7 +95,7 @@ const Register = () => {
             <span>Add an avatar</span>
           </label>
 
-          <button>Register</button>
+          <button onClick={registerAccount}>Register</button>
         </form>
         <p>
           You do have an account?<Link to="/">Login</Link>

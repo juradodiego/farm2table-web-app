@@ -1,35 +1,6 @@
-.multiselect {
-  width: 200px;
-}
-
-.selectBox {
-  position: relative;
-}
-
-.selectBox select {
-  width: 100%;
-  font-weight: bold;
-}
-
-.clicked {
-  display: block;
-}
-
-.overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-#checkboxes label:hover {
-  background-color: #1e90ff;
-}
-
-.boxes {
+.boxes2 {
   overflow-y: scroll;
-  max-height: 80px;
+  max-height: 150px;
   justify-content: left;
 
   label {
@@ -42,39 +13,8 @@
     font-size: 5px;
   }
 }
-.farmer {
-  margin-left: -10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  .addressStuff {
-    display: flex;
-  }
-
-  input {
-    align-items: center;
-    margin-bottom: 15px;
-    margin-left: 11px;
-  }
-}
-
-.names {
-  input {
-    margin-left: 10px;
-  }
-}
-
-.topFields {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  input {
-    margin-top: 15px;
-  }
-}
-.formContainer2 {
+.formContainer {
   background-color: #fefae0;
   height: 100vh;
   display: flex;
@@ -83,23 +23,13 @@
 
   .formWrapper {
     background-color: #bc6c25;
-    padding-top: 100px;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding: 100px 60px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
-    .button {
-      align-items: center;
-      justify-content: space-between;
-      margin-top: -100px;
-      margin-left: -10px;
-      button {
-        margin-left: 30px;
-      }
-    }
+
     .logo {
       color: #283618;
       font-weight: bold;
@@ -110,6 +40,8 @@
       color: #283618;
       font-size: 30px;
       font-weight: bolder;
+      margin-top: -50px;
+      padding-bottom: 30px;
     }
 
     input {
@@ -121,19 +53,10 @@
         color: rgb(175, 175, 175);
       }
     }
-
     form {
       display: flex;
       flex-direction: column;
       gap: 15px;
-    }
-
-    .myDropDown {
-      display: flex;
-      flex-direction: column;
-      height: 30px;
-      overflow-y: scroll;
-      margin-top: 20px;
     }
 
     button {
@@ -162,6 +85,17 @@
       font-size: 15px;
       margin-top: 10px;
       font-weight: bolder;
+    }
+  }
+}
+
+.changeEmail {
+  display: flex;
+  label {
+    color: white;
+    margin-right: 30px;
+    p {
+      font-size: 30px;
     }
   }
 }
