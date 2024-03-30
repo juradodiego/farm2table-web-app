@@ -8,6 +8,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Register from "./pages/Register";
 import Messages from "./pages/Messages";
 import SearchPage from "./pages/SearchPage";
+import Settings from "./pages/Settings";
+import PastReceipts from "./pages/PastReceipts";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/pastReceipts" element={<PastReceipts />} />
       </Routes>
     </BrowserRouter>
   );

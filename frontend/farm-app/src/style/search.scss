@@ -1,4 +1,5 @@
 .search-container {
+  margin-top: 40px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -8,6 +9,24 @@
   select {
     margin-right: 10px;
   }
+}
+
+.alignButton {
+  align-items: center;
+}
+.main {
+  display: block;
+  align-items: center;
+}
+.navigation {
+  margin-left: 20%;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  margin-right: -10%;
+  cursor: pointer;
 }
 
 .search-container input[type="text"] {
@@ -31,4 +50,33 @@
 
 .search-container button:hover {
   background-color: #45a049;
+}
+.farmerItems {
+  height: 540px;
+  overflow-y: scroll;
+}
+.items {
+  margin-top: 30px;
+  height: 50px;
+  border: 2px solid #000; /* Border width, style, and color */
+  border-radius: 8px; /* Border radius for rounded corners */
+  padding: 10px;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: grey;
+  }
+  span {
+    margin-right: 100px;
+    height: 50px;
+    width: 50%;
+  }
+}
+.receiptContents {
+  display: flex;
+  margin-bottom: 10px;
+  p {
+    margin-right: 110px;
+  }
 }
