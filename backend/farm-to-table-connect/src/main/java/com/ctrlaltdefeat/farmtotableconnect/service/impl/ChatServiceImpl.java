@@ -2,17 +2,37 @@ package com.ctrlaltdefeat.farmtotableconnect.service.impl;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Optional;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ctrlaltdefeat.farmtotableconnect.model.Chat;
 import com.ctrlaltdefeat.farmtotableconnect.model.Message;
+import com.ctrlaltdefeat.farmtotableconnect.repository.ChatRepository;
+import com.ctrlaltdefeat.farmtotableconnect.repository.FarmRepository;
+import com.ctrlaltdefeat.farmtotableconnect.repository.UserRepository;
 import com.ctrlaltdefeat.farmtotableconnect.service.ChatService;
 
 public class ChatServiceImpl implements ChatService {
 
+    @Autowired
+    UserRepository userRepository;
+
+    
+    @Autowired
+    FarmRepository farmRepository;
+
+    
+    @Autowired
+    ChatRepository chatRepository;
+
     @Override
     public Chat getChat(Integer customerId, Integer farmerId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getChat'");
+        Optional<Chat> response = chatRepository.getChat(customerId, farmerId);
+        if (response.isPresent()) {
+            
+        }
     }
 
     @Override
