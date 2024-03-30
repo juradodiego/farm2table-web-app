@@ -16,11 +16,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private Integer userId;
-    private Integer farmId;
-    private String addressLine;
-    private String city;
-    private String state;
-    private Integer zipcode;
+    private String fName;
+    private String lName;
+    private Farm farm;
     private Boolean consumer;
     private String email;
     private Integer salt;

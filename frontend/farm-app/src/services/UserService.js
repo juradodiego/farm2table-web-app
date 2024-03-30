@@ -21,7 +21,9 @@ export const login = async (username, password) => {
     }
 };
 
-export const register = async (isFarmer, first, last, username, password, location, produce) => {
+export const register = async (fName, lName, isConsumer, email, 
+    password, farmName, listOfProduce, addressLine, cityName, 
+    stateName, zipcode) => {
     const config = {
         method: "post",
         url: "/register",
@@ -29,13 +31,23 @@ export const register = async (isFarmer, first, last, username, password, locati
             "Content-Type": "application/json"
         },
         params: {
-            isFarmer: isFarmer,
-            firstName: first,
-            lastName: last,
-            username: username,
-            password: password,
-            location: location,
-            produce: produce
+            user: {
+                fName: fName,
+                lName: lName,
+                consumer: isConsumer,
+                email: email,
+                password: password,
+            },
+            farm: {
+                farmName: farmName,
+                selling: listOfProduce,
+            },
+            address: {
+                addressLine: addressLine,
+                city: cityName,
+                state: stateName,
+                zipcode: zipcode, 
+            }
         },
     };
 
