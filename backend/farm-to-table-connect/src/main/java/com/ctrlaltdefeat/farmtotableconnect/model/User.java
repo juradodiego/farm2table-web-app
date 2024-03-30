@@ -2,12 +2,11 @@ package com.ctrlaltdefeat.farmtotableconnect.model;
 
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 
 @Entity
@@ -16,7 +15,7 @@ import jakarta.persistence.Entity;
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GeenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private Integer user_id;
     private String username;
