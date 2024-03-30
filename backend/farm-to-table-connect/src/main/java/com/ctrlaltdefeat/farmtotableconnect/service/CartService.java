@@ -1,5 +1,7 @@
 package com.ctrlaltdefeat.farmtotableconnect.service;
 
-public class CartService {
+public interface CartService {
+
+    
     
 }

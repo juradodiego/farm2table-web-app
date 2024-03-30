@@ -2,6 +2,7 @@ package com.ctrlaltdefeat.farmtotableconnect.repository;
 
 import java.security.Timestamp;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,15 +13,15 @@ import com.ctrlaltdefeat.farmtotableconnect.model.Message;
 public interface ChatRepository extends JpaRepository<Chat, Integer>{
     
     @Query()
-    Chat getChat(Integer customerId, Integer farmerId);
+    Optional<Chat> getChat(Integer customerId, Integer farmerId);
 
     @Query()
-    List<Message> getLatestMessages(Integer chatId, Timestamp lastTimestamp);
+    Optional<List<Message>> getLatestMessages(Integer chatId, Timestamp lastTimestamp);
 
     @Query()
-    Boolean sendMessage(Message message);
+    Optional<Boolean> sendMessage(Message message);
 
     @Query()
-    List<Chat> getAllChats(Integer userId);
+    Optional<List<Chat>> getAllChats(Integer userId);
     
 }
