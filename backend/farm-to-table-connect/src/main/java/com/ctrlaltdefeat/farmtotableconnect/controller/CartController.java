@@ -22,7 +22,7 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
-     @PostMapping("/getCart")
+     @PostMapping("/get")
     public Cart getCart(int cartID) throws Exception {
         try {
             Cart cart = cartService.getCart(cartID);
