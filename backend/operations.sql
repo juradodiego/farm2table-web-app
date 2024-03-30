@@ -30,17 +30,16 @@ create or replace function getUserByUserId(uid varchar(20))
 
 -------------------------------------------
 -- getUser(user_id integer,
---   username varchar(20),
---   farm_id integer,
---   address_line varchar(60),
---   city varchar(30),
---   state varchar(2),
---   zipcode int,
---   consumer boolean,
---   email varchar(60),
---   salt integer,
---   password text,
---   farm_name)
+--   username,
+--   farm_id,
+--   address_line,
+--   city,
+--   state,
+--   zipcode,
+--   consumer,
+--   email,
+--   salt ,
+--   password)
 -------------------------------------------
 create or replace function getUser(user_id integer,
   username varchar(20),
@@ -52,8 +51,7 @@ create or replace function getUser(user_id integer,
   consumer boolean,
   email varchar(60),
   salt integer,
-  password text,
-  farm_name varchar(60))
+  password text)
     returns boolean as
     $$
     declare
@@ -62,7 +60,7 @@ create or replace function getUser(user_id integer,
     begin
         select count(*) into row_count_before from users;
         insert into farm2table.users(values(user_id, username, farm_id, address_line, city, state,
-                                            zipcode, consumer, email, salt, password, farm_name));
+                                            zipcode, consumer, email, salt, password));
         if row_count_after != row_count_before then
             return true;
         else
@@ -71,3 +69,31 @@ create or replace function getUser(user_id integer,
     end;
     $$
     language plpgsql;
+
+-------------------------------------------
+-- CHAT FUNCTIONALITY
+-------------------------------------------
+
+-------------------------------------------
+-- getChat(c_id, f_id)
+-------------------------------------------
+create or replace function getChat(c_id int, f_id int)
+    returns record as
+    $$
+    begin
+        return (select * from farm2table.chat where chat.customer_id = c_id and chat.farmer_id = f_id);
+    end;
+    $$
+    language plpgsql;
+
+-------------------------------------------
+-- getLatest(c_id, time)
+-------------------------------------------
+-- create or replace function getChat(c_id int, time timestamp)
+--     returns record as
+--     $$
+--     begin
+--         return (select * from farm2table.chat where chat.customer_id = c_id and chat.farmer_id = f_id);
+--     end;
+--     $$
+--     language plpgsql;
