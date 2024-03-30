@@ -6,20 +6,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ctrlaltdefeat.farmtotableconnect.service.UserSerivce;
+import com.ctrlaltdefeat.farmtotableconnect.service.UserService;
 import com.ctrlaltdefeat.farmtotableconnect.model.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins="http://localhost:5176")
 @RestController
 @RequestMapping("/user")
 public class UserController {
     
     @Autowired
-    private UserSerivce userSerivce;
+    private UserService userSerivce;
 
     @GetMapping("/login")
     public User getUser(@RequestBody String username, String password) throws Exception {

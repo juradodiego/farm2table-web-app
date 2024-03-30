@@ -22,13 +22,12 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
-    private Integer userID;
-    private String username;
-    private Integer farmID;
+    private Integer userId;
+    private Integer farmId;
     private String addressLine;
     private String city;
     private String state;
-    private int zipcode;
+    private Integer zipcode;
     private Boolean consumer;
     private String email;
     private Integer salt;
