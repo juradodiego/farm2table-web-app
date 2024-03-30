@@ -19,7 +19,7 @@ create or replace function getUserByUsername(uname varchar(20))
 -------------------------------------------
 -- getUser(userid)
 -------------------------------------------
-create or replace function getUserByUserId(uid varchar(20))
+create or replace function getUserByUserId(uid int)
     returns record as
     $$
     begin
