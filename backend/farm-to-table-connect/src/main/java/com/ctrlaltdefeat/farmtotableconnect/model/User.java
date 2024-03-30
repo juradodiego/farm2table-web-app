@@ -17,10 +17,10 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
-    private Integer user_id;
+    private Integer userId;
     private String username;
-    private Integer farm_id;
-    private String address_line;
+    private Integer farmId;
+    private String addressLine;
     private String city;
     private String state;
     private int zipcode;

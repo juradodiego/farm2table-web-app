@@ -8,14 +8,12 @@ import jakarta.persistence.*;
 @Setter
 @Entity
 @NoArgsConstructor
-public class Cart {
+public class Contains {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private Integer cartId;
-    private Integer farmId;
-    private Integer customerId;
-    private Integer farmerId;
-    private Integer chatId;
-    private String content;
+    private Integer produceId;
+    private Integer quantity;
+    private Double price;
 }

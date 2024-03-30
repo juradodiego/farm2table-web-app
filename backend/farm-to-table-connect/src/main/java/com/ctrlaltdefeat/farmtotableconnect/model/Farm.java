@@ -12,7 +12,7 @@ public class Farm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
-    private Integer farmID;
+    private Integer farmId;
     private String farmName;
     private Double latitude;
     private Double longitude;
