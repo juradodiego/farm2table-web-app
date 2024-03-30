@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../style/login.scss";
 
-import { login } from "../services/UserService"
-
+import { login } from "../services/UserService";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,8 +11,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-      login(email, password);
-      navigate("/messages");
+    login(email, password);
+    navigate("/messages");
   };
 
   return (
@@ -22,8 +21,18 @@ const Login = () => {
         <span className="title">Login</span>
         <span className="logo">Farm 2 Table Connect</span>
         <form onSubmit={handleSubmit}>
-          <input type="email" placeholder="email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
-          <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+          <input
+            type="email"
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
           <button>Login</button>
         </form>
