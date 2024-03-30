@@ -19,7 +19,6 @@ public class User {
     private Integer userId;
     private String fName;
     private String lName;
-    // What annotation goes here?
     private Integer farmId;
     private Boolean consumer;
     private String email;
