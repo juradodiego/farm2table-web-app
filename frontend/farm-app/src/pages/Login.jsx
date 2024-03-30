@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../style/login.scss";
-const handleSubmit = () => {};
+const handleSubmit = () => {
+  navigate("/messages");
+};
 
 const Login = () => {
   const navigate = useNavigate();
