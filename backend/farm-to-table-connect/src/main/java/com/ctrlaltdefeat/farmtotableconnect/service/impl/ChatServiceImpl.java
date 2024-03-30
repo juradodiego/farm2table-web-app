@@ -13,6 +13,7 @@ import com.ctrlaltdefeat.farmtotableconnect.repository.ChatRepository;
 import com.ctrlaltdefeat.farmtotableconnect.service.CartService;
 import com.ctrlaltdefeat.farmtotableconnect.service.ChatService;
 
+@Service
 public class ChatServiceImpl implements ChatService {
 
     @Autowired
