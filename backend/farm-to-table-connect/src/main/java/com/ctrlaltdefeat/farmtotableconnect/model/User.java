@@ -3,10 +3,6 @@ package com.ctrlaltdefeat.farmtotableconnect.model;
 import lombok.*;
 
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
 @Entity
