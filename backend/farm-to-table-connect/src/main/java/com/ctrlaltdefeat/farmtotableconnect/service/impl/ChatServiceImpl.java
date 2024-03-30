@@ -13,8 +13,7 @@ import com.ctrlaltdefeat.farmtotableconnect.model.Chat;
 import com.ctrlaltdefeat.farmtotableconnect.model.Message;
 import com.ctrlaltdefeat.farmtotableconnect.repository.ChatRepository;
 import com.ctrlaltdefeat.farmtotableconnect.repository.FarmRepository;
-
-
+import com.ctrlaltdefeat.farmtotableconnect.service.CartService;
 import com.ctrlaltdefeat.farmtotableconnect.service.ChatService;
 
 @Service
@@ -25,6 +24,10 @@ public class ChatServiceImpl implements ChatService {
   
     @Autowired
     ChatRepository chatRepository;
+
+    
+    @Autowired
+    CartService cartService;
 
     @Override
     public Chat getChat(Integer customerId, Integer farmerId) {
