@@ -14,11 +14,11 @@ const SearchPage = () => {
   };
   return (
     <div>
-      <button onClick={logout} className="navigation">
-        {" "}
-        Logout
-      </button>
       <div className="alignButton">
+        <button onClick={logout} className="navigation">
+          {" "}
+          Logout
+        </button>
         <button onClick={sendToMessage} className="navigation">
           {" "}
           Messages
@@ -41,16 +41,27 @@ const SearchPage = () => {
         </div>
       </form>
       <div className="farmerItems">
-        <FarmerReturn />
-        <FarmerReturn />
-        <FarmerReturn />
-        <FarmerReturn />
-        <FarmerReturn />
-        <FarmerReturn />
-        <FarmerReturn />
-        <FarmerReturn />
-        <FarmerReturn />
-        <FarmerReturn />
+        <div onClick={sendToMessage}>
+          <FarmerReturn />
+        </div>
+        <div onClick={sendToMessage}>
+          <FarmerReturn />
+        </div>
+        <div onClick={sendToMessage}>
+          <FarmerReturn />
+        </div>
+        <div onClick={sendToMessage}>
+          <FarmerReturn />
+        </div>
+        <div onClick={sendToMessage}>
+          <FarmerReturn />
+        </div>
+        <div onClick={sendToMessage}>
+          <FarmerReturn />
+        </div>
+        <div onClick={sendToMessage}>
+          <FarmerReturn />
+        </div>
       </div>
     </div>
   );

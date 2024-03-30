@@ -19,13 +19,13 @@
   align-items: center;
 }
 .navigation {
-  margin-left: 37%;
+  margin-left: 30%;
   background-color: #4caf50;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  margin-right: -30%;
+  margin-right: -20%;
   cursor: pointer;
 }
 
@@ -66,5 +66,12 @@
     margin-right: 100px;
     height: 50px;
     width: 50%;
+  }
+}
+.receiptContents {
+  display: flex;
+  margin-bottom: 10px;
+  p {
+    margin-right: 110px;
   }
 }
