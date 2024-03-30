@@ -24,15 +24,15 @@ import java.util.List;
 
 
 
-@CrossOrigin(origins="http://localhos::5176")
+@CrossOrigin(origins="*", allowedHeaders="*")
 @RestController
-@RequestMapping("chat")
+@RequestMapping("/chat")
 public class ChatController {
     
     @Autowired
     private ChatService chatService;
     
-    @GetMapping("/getChat")
+    @GetMapping("/get")
     public Chat getChat(@RequestParam Integer customerId, Integer farmerId) {
         Chat chat = chatService.getChat(customerId, farmerId);
         if (chat == null) {
@@ -41,7 +41,7 @@ public class ChatController {
         return chat;
     }
 
-    @GetMapping("/getLatest")
+    @GetMapping("/latest")
     public List<Message> getLatest(@RequestParam Integer chatId, Timestamp latestTimestamp) {
         List<Message> chat = chatService.getLatest(chatId, latestTimestamp);
         if (chat == null) {
@@ -50,7 +50,7 @@ public class ChatController {
         return chat;
     }
     
-    @PostMapping("/sendMessage")
+    @PostMapping("/send")
     public Chat sendMessage(@RequestBody Message message) {
         Chat chat = chatService.sendMessage(message);
         if (chat == null) {
@@ -59,13 +59,13 @@ public class ChatController {
         return chat;
     }
 
-    @PostMapping("/finishConversation")
+    @PostMapping("/end")
     public Cart finishConveration(@RequestBody Integer chatId) {
-        Cart chat = chatService.finishConversation(chatId);
-        if (chat == null) {
+        Cart cart = chatService.finishConversation(chatId);
+        if (cart == null) {
             throw new Exception("Cannot finish conversation");
         }
         
-        return chat;
+        return cart;
     }
 }
