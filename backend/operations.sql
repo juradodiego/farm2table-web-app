@@ -7,11 +7,11 @@ set schema 'farm2table';
 -------------------------------------------
 -- getUser(username)
 -------------------------------------------
-create or replace function getUserByUsername(uname varchar(20))
+create or replace function getUserByUsername(uname varchar(40))
     returns record as
     $$
     begin
-        return (select * from farm2table.users where users.username = uname);
+        return (select * from farm2table.users where users.email = uname);
     end;
     $$
     language plpgsql;
@@ -23,14 +23,13 @@ create or replace function getUserByUserId(uid int)
     returns record as
     $$
     begin
-        return (select * from farm2table.users where users.user_id = uid);
+        return (select * from farm2table.users where users.userId = uid);
     end;
     $$
     language plpgsql;
 
 -------------------------------------------
 -- getUser(user_id integer,
---   username,
 --   farm_id,
 --   address_line,
 --   city,
@@ -41,10 +40,9 @@ create or replace function getUserByUserId(uid int)
 --   salt ,
 --   password)
 -------------------------------------------
-create or replace function newUser(user_id integer,
-  username varchar(20),
-  farm_id integer,
-  address_line varchar(60),
+create or replace function newUser(userId integer,
+  farmId integer,
+  addressLine varchar(60),
   city varchar(30),
   state varchar(2),
   zipcode int,
@@ -59,7 +57,7 @@ create or replace function newUser(user_id integer,
         row_count_after int;
     begin
         select count(*) into row_count_before from users;
-        insert into farm2table.users(values(user_id, username, farm_id, address_line, city, state,
+        insert into farm2table.users(values(userId, farmId, addressLine, city, state,
                                             zipcode, consumer, email, salt, password));
         if row_count_after != row_count_before then
             return true;
@@ -77,11 +75,11 @@ create or replace function newUser(user_id integer,
 -------------------------------------------
 -- getChat(c_id, f_id)
 -------------------------------------------
-create or replace function getChat(c_id int, f_id int)
+create or replace function getChat(cid int, fid int)
     returns record as
     $$
     begin
-        return (select * from farm2table.chat where chat.customer_id = c_id and chat.farmer_id = f_id);
+        return (select * from farm2table.chat where chat.customerId = cid and chat.farmerId = fid);
     end;
     $$
     language plpgsql;
