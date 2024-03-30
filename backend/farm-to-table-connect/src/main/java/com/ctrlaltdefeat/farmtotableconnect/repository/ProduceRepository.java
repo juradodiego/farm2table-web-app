@@ -11,10 +11,10 @@ import com.ctrlaltdefeat.farmtotableconnect.model.Produce;
 
 public interface ProduceRepository extends JpaRepository<Produce, Integer>{
     
-    @Query()
-    Optional<List<Produce>> getProduce();
+    // @Query()
+    // Optional<List<Produce>> getProduce();
 
-    @Query()
-    Optional<Map<Integer, Integer>> getSelling();
+    // @Query()
+    // Optional<Map<Integer, Integer>> getSelling();
 
 }

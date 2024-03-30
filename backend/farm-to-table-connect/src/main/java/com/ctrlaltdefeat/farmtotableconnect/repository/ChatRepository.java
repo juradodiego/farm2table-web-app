@@ -12,22 +12,22 @@ import com.ctrlaltdefeat.farmtotableconnect.model.Message;
 
 public interface ChatRepository extends JpaRepository<Chat, Integer>{
     
-    @Query()
-    Optional<Chat> getChat(Integer customerId, Integer farmerId);
+    // @Query()
+    // Optional<Chat> getChat(Integer customerId, Integer farmerId);
 
-    @Query()
-    Optional<List<Message>> getLatestMessages(Integer chatId, Timestamp lastTimestamp);
+    // @Query()
+    // Optional<List<Message>> getLatestMessages(Integer chatId, Timestamp lastTimestamp);
 
-    @Query()
-    Optional<Boolean> sendMessage(Message message);
+    // @Query()
+    // Optional<Boolean> sendMessage(Message message);
 
-    @Query()
-    Optional<List<Chat>> getAllChats(Integer userId);
+    // @Query()
+    // Optional<List<Chat>> getAllChats(Integer userId);
 
-    @Query
-    Optional<Boolean> isFarmerApproved(Integer chatId);
+    // @Query
+    // Optional<Boolean> isFarmerApproved(Integer chatId);
 
-    @Query
-    Optional<Boolean> isCustomerApproved(Integer chatId);
+    // @Query
+    // Optional<Boolean> isCustomerApproved(Integer chatId);
     
 }

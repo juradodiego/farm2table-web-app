@@ -12,14 +12,14 @@ import com.ctrlaltdefeat.farmtotableconnect.model.Produce;
 
 public interface FarmRepository extends JpaRepository<Farm, Integer>{
 
-    @Query()
-    Optional<List<Farm>> queryByProduce(List<Produce> produce);
+    // @Query()
+    // Optional<List<Farm>> queryByProduce(List<Produce> produce);
 
-    @Query()
-    Optional<List<Farm>> queryByLocation(Integer zipcode);
+    // @Query()
+    // Optional<List<Farm>> queryByLocation(Integer zipcode);
 
-    @Query()
-    Optional<List<Farm>> queryByProduceAndLocation(List<Produce> produce, Integer zipcode);
+    // @Query()
+    // Optional<List<Farm>> queryByProduceAndLocation(List<Produce> produce, Integer zipcode);
 
     
 }

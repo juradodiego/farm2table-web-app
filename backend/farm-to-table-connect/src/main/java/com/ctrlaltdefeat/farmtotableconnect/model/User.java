@@ -3,6 +3,7 @@ package com.ctrlaltdefeat.farmtotableconnect.model;
 import lombok.*;
 
 import jakarta.persistence.Id;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,7 +19,8 @@ public class User {
     private Integer userId;
     private String fName;
     private String lName;
-    private Farm farm;
+    // What annotation goes here?
+    private Integer farmId;
     private Boolean consumer;
     private String email;
     private Integer salt;

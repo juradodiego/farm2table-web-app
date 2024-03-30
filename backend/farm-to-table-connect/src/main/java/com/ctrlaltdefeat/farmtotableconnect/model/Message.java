@@ -2,7 +2,8 @@ package com.ctrlaltdefeat.farmtotableconnect.model;
 
 import lombok.*;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
+
 import jakarta.persistence.*;
 
 @Getter
