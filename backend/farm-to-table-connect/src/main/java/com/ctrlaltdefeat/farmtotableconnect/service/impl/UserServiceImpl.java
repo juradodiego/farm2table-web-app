@@ -16,9 +16,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
     @Override
     public User getUserByUsername(String email, String password) {
         Optional<User> response = userRepository.getUserByUsername(email);
@@ -42,11 +39,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User newUser(User user) {
-        return userRepository.save(user);
+        return userRepository.newUser(user);
     }
     
-    private String encodePassword(String rawPassword){
-        return passwordEncoder.encode(rawPassword);
-    }
 
 }
