@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../style/login.scss";
-import { login } from "../services/UserService"
 
+import { login } from "../services/UserService"
 
 
 const Login = () => {
