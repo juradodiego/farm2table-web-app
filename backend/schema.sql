@@ -29,7 +29,6 @@ create table users (
   email varchar(60) not null unique,
   salt integer not null,
   password text not null,
-  farm_name varchar(60),
   constraint user_pk primary key (user_id),
   constraint user_farm_fk foreign key (farm_id) references farm(farm_id)
 );
