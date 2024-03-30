@@ -31,16 +31,14 @@ create or replace function getUserByUserId(uid int)
 -------------------------------------------
 -- getUser(user_id integer,
 --   farm_id,
---   address_line,
---   city,
---   state,
---   zipcode,
 --   consumer,
 --   email,
+--   fname
+--   lname
 --   salt ,
 --   password)
 -------------------------------------------
-create or replace function newUser(userId integer,farmId integer,addressLine varchar(60),city varchar(30),state varchar(2),zipcode int,
+create or replace function newUser(userId integer,farmId integer,fname varchar(20), lname varchar(20),
   consumer boolean,email varchar(60),salt integer,password text)
     returns boolean as
     $$
@@ -49,8 +47,7 @@ create or replace function newUser(userId integer,farmId integer,addressLine var
         row_count_after int;
     begin
         select count(*) into row_count_before from users;
-        insert into farm2table.users(values(userId, farmId, addressLine, city, state,
-                                            zipcode, consumer, email, salt, password));
+        insert into farm2table.users(values(userId, farmId, fname, lname, consumer, email, salt, password));
         select count(*) into row_count_after from users;
         if row_count_after != row_count_before then
             return true;
@@ -88,7 +85,8 @@ create or replace function getLatestMessages(cid integer, t timestamp)
     sentAt timestamp) as
     $$
     begin
-        return (select * from farm2table.messages where messages.chatId = cid and messages.sentAt >= t);
+        return (select * from farm2table.messages where messages.chatId = cid and messages.sentAt >= t
+                                                  order by sentAt asc);
     end;
     $$
     language plpgsql;
@@ -137,11 +135,65 @@ create or replace function getAllChats(uid integer)
     language plpgsql;
 
 -------------------------------------------
+-- isFarmerApproved(cid)
+-------------------------------------------
+create or replace function isFarmerApproved(cid integer)
+    returns boolean as
+    $$
+    declare
+        toRet boolean;
+    begin
+        select approvedByFarmer into toRet from farm2table.cart where cartId = cid;
+        return toRet;
+    end;
+    $$
+    language plpgsql;
+
+-------------------------------------------
+-- setFarmerApproved(cid)
+-------------------------------------------
+create or replace function setFarmerApproved(cid integer)
+    returns void as
+    $$
+    begin
+        update cart set approvedByFarmer = True where cartId = cid;
+    end;
+    $$
+    language plpgsql;
+
+-------------------------------------------
+-- isCustomerApproved(cid)
+-------------------------------------------
+create or replace function isCustomerApproved(cid integer)
+    returns boolean as
+    $$
+    declare
+        toRet boolean;
+    begin
+        select approvedByCustomer into toRet from farm2table.cart where cartId = cid;
+        return toRet;
+    end;
+    $$
+    language plpgsql;
+
+-------------------------------------------
+-- setCustomerApproved(cid)
+-------------------------------------------
+create or replace function setCustomerApproved(cid integer)
+    returns void as
+    $$
+    begin
+        update cart set approvedByCustomer = True where cartId = cid;
+    end;
+    $$
+    language plpgsql;
+
+-------------------------------------------
 -- CART FUNCTIONALITY
 -------------------------------------------
 
 -------------------------------------------
--- getCart(c_id, f_id)
+-- getCart(cid)
 -------------------------------------------
 create or replace function getChat(cid int)
     returns record as
@@ -155,22 +207,39 @@ create or replace function getChat(cid int)
 -------------------------------------------
 -- setCart(mid, cid, sid, content, sat)
 -------------------------------------------
--- create or replace function setCart(cartId integer,farmId integer,customerId integer,farmerId integer,
--- chatId integer,content text,approvedByFarmer boolean,approvedByUser boolean)
---     returns boolean as
---     $$
---     declare
---         row_count_before int;
---         row_count_after int;
---     begin
---          select count(*) into row_count_before from messages;
---          insert into farm2table.messages(values(mid, cid, sid, content, sat));
---          select count(*) into row_count_after from messages;
---          if row_count_after != row_count_before then
---             return true;
---         else
---             return false;
---         end if;
---     end;
---     $$
---     language plpgsql;
+create or replace function setCart(cartId integer,customerId integer,farmerId integer,
+chatId integer,approvedByFarmer boolean, approvedByUser boolean, isActive boolean)
+    returns boolean as
+    $$
+    declare
+        row_count_before int;
+        row_count_after int;
+    begin
+         select count(*) into row_count_before from cart;
+         insert into farm2table.messages(values(cartId, customerId, farmerId, chatId, approvedByFarmer,
+                                                approvedByUser, isActive));
+         select count(*) into row_count_after from cart;
+         if row_count_after != row_count_before then
+            return true;
+        else
+            return false;
+        end if;
+    end;
+    $$
+    language plpgsql;
+
+-------------------------------------------
+-- PRODUCE FUNCTIONALITY
+-------------------------------------------
+
+-------------------------------------------
+-- getProduce()
+-------------------------------------------
+create or replace function getProduce()
+    returns table(produceId integer, name varchar(30)) as
+    $$
+    begin
+        return (select * from farm2table.produce);
+    end;
+    $$
+    language plpgsql;

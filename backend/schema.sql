@@ -21,12 +21,10 @@ drop table if exists users CASCADE;
 create table users (
   userId integer,
   farmID integer,
-  addressLine varchar(60) not null,
-  city varchar(30) not null,
-  state varchar(2) not null,
-  zipcode int not null,
   consumer boolean not null,
   email varchar(40) not null unique,
+  fname varchar(20),
+  lname varchar(20),
   salt integer not null,
   password text not null,
   constraint user_pk primary key (userId),
@@ -89,13 +87,12 @@ create table messages (
 drop table if exists cart CASCADE;
 create table cart (
   cartId integer,
-  farmId integer,
   customerId integer,
   farmerId integer,
   chatId integer,
-  content text not null,
   approvedByFarmer boolean,
-  approvedByUser boolean,
+  approvedByCustomer boolean,
+  isActive boolean,
   constraint cart_pk primary key (cartId),
   constraint cart_customer_fk foreign key (customerId) references users(userId),
   constraint cart_chat_fk foreign key (chatId) references chat(chatId),
@@ -105,7 +102,7 @@ create table cart (
 -------------------------------------------
 -- contains
 -------------------------------------------
-drop table if exists contains CASCADE;
+drop table if exists cartItem CASCADE;
 create table contains (
   cartId integer,
   produceId integer,
