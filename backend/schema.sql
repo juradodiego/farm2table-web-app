@@ -78,7 +78,7 @@ create table messages (
   senderId integer not null,
   content text,
   sentAt timestamp not null,
-  constraint messages_pk primary key (messageId),
+  constraint messages_pk primary key (messageId, chatId),
   constraint messages_sender_fk foreign key (senderId) references users(userId),
   constraint messages_chat_fk foreign key (chatId) references chat(chatId)
 );
@@ -94,6 +94,8 @@ create table cart (
   farmerId integer,
   chatId integer,
   content text not null,
+  approvedByFarmer boolean,
+  approvedByUser boolean,
   constraint cart_pk primary key (cartId),
   constraint cart_customer_fk foreign key (customerId) references users(userId),
   constraint cart_chat_fk foreign key (chatId) references chat(chatId),
