@@ -6,11 +6,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.ctrlaltdefeat.farmtotableconnect.model.Address;
 import com.ctrlaltdefeat.farmtotableconnect.model.Farm;
 import com.ctrlaltdefeat.farmtotableconnect.model.User;
@@ -29,35 +29,30 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByUsername(String email, String password) {
-        User u = userRepository.getUserByUsername(email);
-        return u.getPassword().equals(password) ? u : null;
+        List<User> matchingUsers = userRepository.findAll().stream().filter(u -> u.getEmail().equals(email)).toList();
+        return !matchingUsers.isEmpty() && matchingUsers.get(0).getPassword().equals(password) ? matchingUsers.get(0) : null;        
     }
 
     @Override
     public User getUserByUserId(Integer userId) {
-        // Optional<User> response = userRepository.getUserByUserId(userId);
-        // if (response.isPresent()) {
-        //     return response.get();
-            
-        // }
-        return null;
+        Optional<User> user = userRepository.findById(userId);
+        return user.isPresent() ? user.get() : null; 
     }
 
     @Override
     public User newUser(User user, Farm farm, Address address) {
-        // if (user.getConsumer().booleanValue()) { 
-        //     userRepository.newUser(user); 
-
-        // } else {
-        //     calculateLatAndLong(farm, address);
-        //     farmRepository.save(farm);
-        //     user.setFarmId(farm.getFarmId());
-        //     userRepository.newUser(user);
-            
-
-        // }
+        if (user != null) {
+            if (farm != null && address != null){
+                calculateLatAndLong(farm, address);
+                farmRepository.save(farm);
+                user.setFarmId(farm.getFarmId());
+            }
+    
+            userRepository.save(user); 
+        }
 
         return user;
+        
     }
     
     private void calculateLatAndLong(Farm farm, Address address){
