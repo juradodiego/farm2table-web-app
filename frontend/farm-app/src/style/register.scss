@@ -1,0 +1,136 @@
+.dropdown-check-list {
+  display: inline-block;
+}
+
+.dropdown-check-list .anchor {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 50px 5px 10px;
+  border: 1px solid #ccc;
+}
+
+.dropdown-check-list .anchor:after {
+  position: absolute;
+  content: "";
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  padding: 5px;
+  right: 10px;
+  top: 20%;
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.dropdown-check-list .anchor:active:after {
+  right: 8px;
+  top: 21%;
+}
+
+.dropdown-check-list ul.items {
+  padding: 2px;
+  display: none;
+  margin: 0;
+  border-top: none;
+  max-width: 20px;
+}
+
+.dropdown-check-list ul.items li {
+  list-style: none;
+}
+
+.dropdown-check-list.visible .anchor {
+  color: #283618;
+}
+
+.dropdown-check-list.visible .items {
+  display: block;
+}
+
+.formContainer2 {
+  background-color: #fefae0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .formWrapper {
+    background-color: #bc6c25;
+    padding-top: 150px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    .button {
+      align-items: center;
+      justify-content: space-between;
+      margin-top: -100px;
+      margin-bottom: 50px;
+      margin-left: -10px;
+      button {
+        margin-left: 30px;
+      }
+    }
+    .logo {
+      color: #283618;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .title {
+      color: #283618;
+      font-size: 30px;
+      font-weight: bolder;
+      padding-bottom: 30px;
+    }
+
+    input {
+      padding: 15px;
+      border: none;
+      width: 250px;
+      border-bottom: 1px solid #283618;
+      &::placeholder {
+        color: rgb(175, 175, 175);
+      }
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    button {
+      background-color: #283618;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    img {
+      width: 32px;
+    }
+
+    p {
+      color: #fefae0;
+      font-size: 15px;
+      margin-top: 10px;
+      font-weight: bolder;
+    }
+  }
+}
