@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import "../style/register.scss";
 import Add from "../img/addAvatar.png";
 import "../style/dropdown.js";
-
+import { ReactLocation, Router, useMatch } from "react-location";
 const Register = () => {
   const [isFarmer, setFarmer] = useState(false);
   const [clicked, setClicked] = useState(false);
