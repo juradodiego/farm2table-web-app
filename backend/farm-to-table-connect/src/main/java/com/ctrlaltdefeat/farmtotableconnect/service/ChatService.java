@@ -1,6 +1,7 @@
 package com.ctrlaltdefeat.farmtotableconnect.service;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.ctrlaltdefeat.farmtotableconnect.model.Chat;

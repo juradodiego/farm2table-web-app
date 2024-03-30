@@ -9,10 +9,10 @@ import com.ctrlaltdefeat.farmtotableconnect.model.Cart;
 
 public interface CartRepository extends JpaRepository<Cart, Integer>{
 
-    @Query()
-    Optional<Cart> getCart(Integer cartId);
+    // @Query()
+    // Optional<Cart> getCart(Integer cartId);
 
-    @Query()
-    Optional<Boolean> setCart(Cart cart);
+    // @Query()
+    // Optional<Boolean> setCart(Cart cart);
     
 }

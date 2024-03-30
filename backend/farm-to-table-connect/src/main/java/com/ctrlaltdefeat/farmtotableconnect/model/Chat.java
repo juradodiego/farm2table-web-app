@@ -17,5 +17,7 @@ public class Chat {
     private Integer chatId;
     private Integer customerId;
     private Integer farmerId;
+    @Column
+    @ElementCollection(targetClass=Message.class)
     private List<Message> conversation;
 }

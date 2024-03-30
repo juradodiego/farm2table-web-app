@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.ctrlaltdefeat.farmtotableconnect.model.Address;
 import com.ctrlaltdefeat.farmtotableconnect.model.Farm;
 import com.ctrlaltdefeat.farmtotableconnect.model.User;
+import com.ctrlaltdefeat.farmtotableconnect.repository.FarmRepository;
 import com.ctrlaltdefeat.farmtotableconnect.repository.UserRepository;
 import com.ctrlaltdefeat.farmtotableconnect.service.UserService;
 
@@ -22,6 +23,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    FarmRepository farmRepository;
 
     @Override
     public User getUserByUsername(String email, String password) {
@@ -51,8 +55,10 @@ public class UserServiceImpl implements UserService {
 
         } else {
             calculateLatAndLong(farm, address);
-            user.setFarm(farm);
+            farmRepository.save(farm);
+            user.setFarmId(farm.getFarmId());
             userRepository.newUser(user);
+            
 
         }
 
@@ -62,7 +68,7 @@ public class UserServiceImpl implements UserService {
     private void calculateLatAndLong(Farm farm, Address address){
         String addressString = address.getAddressLine() + " " + address.getCity() + " " +  address.getState() + " " + address.getZipcode();
         String apiKey = "AIzaSyDIjS7dqMBpTshDwI_SbI1l5aTkvP7mkiA"; 
-        
+
         try {
             // Create a URL for the Geocoding API request
             String url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + URLEncoder.encode(addressString, "UTF-8") + "&key=" + apiKey;
