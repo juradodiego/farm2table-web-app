@@ -17,6 +17,8 @@ import com.ctrlaltdefeat.farmtotableconnect.repository.ProduceRepository;
 import com.ctrlaltdefeat.farmtotableconnect.repository.FarmRepository;
 import com.ctrlaltdefeat.farmtotableconnect.service.QueryService;
 
+
+@Service
 public class QueryServiceImpl implements QueryService {
 
     @Autowired
