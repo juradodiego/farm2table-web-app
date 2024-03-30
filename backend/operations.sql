@@ -41,7 +41,7 @@ create or replace function getUserByUserId(uid varchar(20))
 --   salt ,
 --   password)
 -------------------------------------------
-create or replace function getUser(user_id integer,
+create or replace function newUser(user_id integer,
   username varchar(20),
   farm_id integer,
   address_line varchar(60),
