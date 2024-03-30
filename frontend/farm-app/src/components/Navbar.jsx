@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <button>logout</button>
+      <button>back</button>
       <span className="logo">Farm 2 Table</span>
       <div className="user">
         <img

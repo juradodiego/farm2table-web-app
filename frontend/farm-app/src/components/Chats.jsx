@@ -9,7 +9,7 @@ export const Chats = () => {
           alt=""
         />
         <div className="userChatInfo">
-          <span>Display Name</span>
+          <span>Other Display Name</span>
         </div>
       </div>
     </div>

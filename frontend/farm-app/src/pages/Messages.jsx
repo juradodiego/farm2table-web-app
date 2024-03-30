@@ -1,6 +1,7 @@
 import React from "react";
 import Chat from "../components/Chat";
 import SideBar from "../components/SideBar";
+import Receipt from "../components/Receipt";
 
 const Messages = () => {
   return (
