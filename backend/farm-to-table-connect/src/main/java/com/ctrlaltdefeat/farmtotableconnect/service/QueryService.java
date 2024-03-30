@@ -17,6 +17,6 @@ public interface QueryService {
      * @param radius in miles
      * @return a list of farms that have the desired produce in the radius of the zipcode
      */
-    List<Farm> queryByProduceAndLocation(Produce produce, Integer zipcode, Double radius);
+    List<Farm> queryByProduceAndLocation(Integer produce, Integer zipcode, Double radius);
     
 }
