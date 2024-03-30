@@ -5,4 +5,5 @@ import com.ctrlaltdefeat.farmtotableconnect.model.Chat;
 
 @Repository
 public interface ChatRepository extends JpaRepository<Chat, Integer>{
+
 }

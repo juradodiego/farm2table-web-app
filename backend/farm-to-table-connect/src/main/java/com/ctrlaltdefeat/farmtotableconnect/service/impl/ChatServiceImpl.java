@@ -2,6 +2,8 @@ package com.ctrlaltdefeat.farmtotableconnect.service.impl;
 
 import java.sql.Timestamp;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,17 +12,19 @@ import com.ctrlaltdefeat.farmtotableconnect.model.Cart;
 import com.ctrlaltdefeat.farmtotableconnect.model.Chat;
 import com.ctrlaltdefeat.farmtotableconnect.model.Message;
 import com.ctrlaltdefeat.farmtotableconnect.repository.ChatRepository;
-import com.ctrlaltdefeat.farmtotableconnect.service.CartService;
+import com.ctrlaltdefeat.farmtotableconnect.repository.FarmRepository;
+
+
 import com.ctrlaltdefeat.farmtotableconnect.service.ChatService;
 
 @Service
 public class ChatServiceImpl implements ChatService {
 
     @Autowired
-    ChatRepository chatRepository;
-
+    FarmRepository farmRepository;
+  
     @Autowired
-    CartService cartService;
+    ChatRepository chatRepository;
 
     @Override
     public Chat getChat(Integer customerId, Integer farmerId) {
