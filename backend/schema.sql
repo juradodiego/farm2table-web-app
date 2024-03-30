@@ -100,7 +100,7 @@ create table cart (
 );
 
 -------------------------------------------
--- contains
+-- cartItem
 -------------------------------------------
 drop table if exists cartItem CASCADE;
 create table cartItem (
