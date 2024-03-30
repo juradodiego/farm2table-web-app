@@ -2,7 +2,6 @@ package com.ctrlaltdefeat.farmtotableconnect.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,9 +11,6 @@ import com.ctrlaltdefeat.farmtotableconnect.model.Farm;
 import com.ctrlaltdefeat.farmtotableconnect.model.LoginRequest;
 import com.ctrlaltdefeat.farmtotableconnect.model.User;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -37,7 +33,7 @@ public class UserController {
                 throw new Exception("Incorrect username or password");
             return user;
         } catch (Exception e) {
-            System.out.println("e");
+            System.out.println(e);
         }
         
         return null;

@@ -6,11 +6,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.ctrlaltdefeat.farmtotableconnect.model.Address;
 import com.ctrlaltdefeat.farmtotableconnect.model.Farm;
 import com.ctrlaltdefeat.farmtotableconnect.model.Produce;
 import com.ctrlaltdefeat.farmtotableconnect.repository.ProduceRepository;
@@ -72,19 +72,19 @@ public class QueryServiceImpl implements QueryService {
             // Close connection
             connection.disconnect();
             
-            return farmRepository.findAll().stream().filter(f -> validFarm(f, lat, lon)).toList();
+            return farmRepository.findAll().stream().filter(f -> validFarm(f, lat, lon, radius)).toList();
 
 
         } catch (IOException e) {
             e.printStackTrace();
+            return Collections.emptyList();
         }
-        farmRepository.findAll().stream().filter(null)
 
     }
 
     @Override
-    public List<Farm> queryByProduceAndLocation(List<Produce> produce, Integer zipcode, Double radius) {
-        return queryByLocation(zipcode, radius).stream().filter(f -> f.getSelling().contains(produce)).toList();
+    public List<Farm> queryByProduceAndLocation(Produce produce, Integer zipcode, Double radius) {
+        return queryByLocation(zipcode, radius).stream().filter(f -> f.getSelling().contains(produce.getProduceId())).toList();
     }
 
     private Boolean validFarm(Farm farm, Double lat, Double lon, Double radius){
