@@ -11,6 +11,7 @@ import com.ctrlaltdefeat.farmtotableconnect.model.Produce;
 import com.ctrlaltdefeat.farmtotableconnect.repository.CartRepository;
 import com.ctrlaltdefeat.farmtotableconnect.service.CartService;
 
+@Service
 public class CartServiceImpl implements CartService {
 
     @Autowired
