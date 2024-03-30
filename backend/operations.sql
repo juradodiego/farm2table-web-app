@@ -135,3 +135,42 @@ create or replace function getAllChats(uid integer)
     end;
     $$
     language plpgsql;
+
+-------------------------------------------
+-- CART FUNCTIONALITY
+-------------------------------------------
+
+-------------------------------------------
+-- getCart(c_id, f_id)
+-------------------------------------------
+create or replace function getChat(cid int)
+    returns record as
+    $$
+    begin
+        return (select * from farm2table.cart where cart.cartid = cid);
+    end;
+    $$
+    language plpgsql;
+
+-------------------------------------------
+-- setCart(mid, cid, sid, content, sat)
+-------------------------------------------
+-- create or replace function setCart(cartId integer,farmId integer,customerId integer,farmerId integer,
+-- chatId integer,content text,approvedByFarmer boolean,approvedByUser boolean)
+--     returns boolean as
+--     $$
+--     declare
+--         row_count_before int;
+--         row_count_after int;
+--     begin
+--          select count(*) into row_count_before from messages;
+--          insert into farm2table.messages(values(mid, cid, sid, content, sat));
+--          select count(*) into row_count_after from messages;
+--          if row_count_after != row_count_before then
+--             return true;
+--         else
+--             return false;
+--         end if;
+--     end;
+--     $$
+--     language plpgsql;
