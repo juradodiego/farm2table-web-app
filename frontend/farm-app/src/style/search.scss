@@ -19,13 +19,13 @@
   align-items: center;
 }
 .navigation {
-  margin-left: 30%;
+  margin-left: 20%;
   background-color: #4caf50;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  margin-right: -20%;
+  margin-right: -10%;
   cursor: pointer;
 }
 
@@ -62,6 +62,11 @@
   border-radius: 8px; /* Border radius for rounded corners */
   padding: 10px;
   justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: grey;
+  }
   span {
     margin-right: 100px;
     height: 50px;

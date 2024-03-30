@@ -12,6 +12,14 @@ const SearchPage = () => {
   const logout = () => {
     navigate("/");
   };
+
+  const settings = () => {
+    navigate("/settings");
+  };
+
+  const sendToReceipts = () => {
+    navigate("/pastReceipts");
+  };
   return (
     <div>
       <div className="alignButton">
@@ -23,7 +31,14 @@ const SearchPage = () => {
           {" "}
           Messages
         </button>
-        <button className="navigation"> Receipts</button>
+        <button onClick={sendToReceipts} className="navigation">
+          {" "}
+          Receipts
+        </button>
+        <button onClick={settings} className="navigation">
+          {" "}
+          Settings
+        </button>
       </div>
       <form action="" className="main">
         <div className="search-container">
