@@ -135,60 +135,6 @@ create or replace function getAllChats(uid integer)
     language plpgsql;
 
 -------------------------------------------
--- isFarmerApproved(cid)
--------------------------------------------
-create or replace function isFarmerApproved(cid integer)
-    returns boolean as
-    $$
-    declare
-        toRet boolean;
-    begin
-        select approvedByFarmer into toRet from farm2table.cart where cartId = cid;
-        return toRet;
-    end;
-    $$
-    language plpgsql;
-
--------------------------------------------
--- setFarmerApproved(cid)
--------------------------------------------
-create or replace function setFarmerApproved(cid integer)
-    returns void as
-    $$
-    begin
-        update cart set approvedByFarmer = True where cartId = cid;
-    end;
-    $$
-    language plpgsql;
-
--------------------------------------------
--- isCustomerApproved(cid)
--------------------------------------------
-create or replace function isCustomerApproved(cid integer)
-    returns boolean as
-    $$
-    declare
-        toRet boolean;
-    begin
-        select approvedByCustomer into toRet from farm2table.cart where cartId = cid;
-        return toRet;
-    end;
-    $$
-    language plpgsql;
-
--------------------------------------------
--- setCustomerApproved(cid)
--------------------------------------------
-create or replace function setCustomerApproved(cid integer)
-    returns void as
-    $$
-    begin
-        update cart set approvedByCustomer = True where cartId = cid;
-    end;
-    $$
-    language plpgsql;
-
--------------------------------------------
 -- CART FUNCTIONALITY
 -------------------------------------------
 
@@ -215,15 +161,70 @@ chatId integer,approvedByFarmer boolean, approvedByUser boolean, isActive boolea
         row_count_before int;
         row_count_after int;
     begin
-         select count(*) into row_count_before from cart;
+         select count(*) into row_count_before from farm2table.cart;
          insert into farm2table.messages(values(cartId, customerId, farmerId, chatId, approvedByFarmer,
                                                 approvedByUser, isActive));
-         select count(*) into row_count_after from cart;
+         select count(*) into row_count_after from farm2table.cart;
          if row_count_after != row_count_before then
             return true;
         else
             return false;
         end if;
+    end;
+    $$
+    language plpgsql;
+
+
+-------------------------------------------
+-- isFarmerApproved(cid)
+-------------------------------------------
+create or replace function isFarmerApproved(cid integer)
+    returns boolean as
+    $$
+    declare
+        toRet boolean;
+    begin
+        select approvedByFarmer into toRet from farm2table.cart where cartId = cid;
+        return toRet;
+    end;
+    $$
+    language plpgsql;
+
+-------------------------------------------
+-- setFarmerApproved(cid)
+-------------------------------------------
+create or replace function setFarmerApproved(cid integer)
+    returns void as
+    $$
+    begin
+        update farm2table.cart set approvedByFarmer = True where cartId = cid;
+    end;
+    $$
+    language plpgsql;
+
+-------------------------------------------
+-- isCustomerApproved(cid)
+-------------------------------------------
+create or replace function isCustomerApproved(cid integer)
+    returns boolean as
+    $$
+    declare
+        toRet boolean;
+    begin
+        select approvedByCustomer into toRet from farm2table.cart where cartId = cid;
+        return toRet;
+    end;
+    $$
+    language plpgsql;
+
+-------------------------------------------
+-- setCustomerApproved(cid)
+-------------------------------------------
+create or replace function setCustomerApproved(cid integer)
+    returns void as
+    $$
+    begin
+        update farm2table.cart set approvedByCustomer = True where cartId = cid;
     end;
     $$
     language plpgsql;
